@@ -4,18 +4,18 @@ const connection=require("./config/db")
 const {HtmlRouter}=require("./routes/html.routes")
 
 const {CssRouter}=require("./routes/css.routes")
-
+const c=require("cors")
 const app=express()
 app.use(express.json())
 
-app.use(cors({
-    'allowedHeaders': ['Content-Type', 'API-Key', 'API-Secret', 'Access-Control-Allow-Headers', 'accept', 'client-security-token'],
-    'exposedHeaders': ['sessionId'],
-    'origin': '*',
-    'methods': 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
-    'preflightContinue': false,
-    'credentials': true
-  }));
+// c.use(cors({
+//     'allowedHeaders': ['Content-Type', 'API-Key', 'API-Secret', 'Access-Control-Allow-Headers', 'accept', 'client-security-token'],
+//     'exposedHeaders': ['sessionId'],
+//     'origin': '*',
+//     'methods': 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',
+//     'preflightContinue': false,
+//     'credentials': true
+//   }));
 
 
 app.get("/",(req,res)=>{
