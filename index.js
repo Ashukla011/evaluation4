@@ -1,19 +1,19 @@
 
 const express=require("express")
 const connection=require("./config/db")
-const {postRouter}=require("./routes/Post.routes")
+const {HtmlRouter}=require("./routes/html.routes")
 
-const {userRouter}=require("./routes/user.routes")
-const {authenticate}=require("./middleware/authentication")
+const {CssRouter}=require("./routes/css.routes")
+
 const app=express()
 app.use(express.json())
 
 app.get("/",(req,res)=>{
-    res.send("evalutation 4")
+    res.send("successfull")
 })
-app.use("/users",userRouter)
-app.use(authenticate)
-app.use("/posts",postRouter)
+app.use("/pages",HtmlRouter)
+
+app.use("/pages",CssRouter)
 
 
 
@@ -25,6 +25,7 @@ app.listen(4500,async()=>{
     }catch(err){
         console.log("Somethibg Wrong i Server")
     }
+    console.log("Server is runnin 4500")
 })
 
 
